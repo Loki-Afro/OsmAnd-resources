@@ -1085,8 +1085,7 @@
 		<switch minzoom="11" tag="route_type" value="cycling" cap="ROUND" rClass=".route.bicycle">
 			<switch additional="route_activity_type=road_cycling">
 				<case>
-					<switch minzoom="10">
-						<!-- Touring early-route test: keep current route classes, expose relation networks before z12 -->
+					<switch minzoom="12">
 						<case showCycleRoutes="true" additional="!node_network" rClass=".route.bicycle.road_network">
 							<case additional="network=icn" rClass=".route.bicycle.road_network.icn">
 								<apply color="$cycleRouteicnColor" rClass=".route.bicycle.color.classification"/>
@@ -1300,8 +1299,7 @@
 				<case additional="route_activity_type=hiking" rClass=".route.hiking"/>
 				<case additional="route_activity_type=walking" rClass=".route.hiking"/>
 				<apply>
-					<switch minzoom="10">
-						<!-- Touring early-route test: keep current route classes, expose relation networks before z12 -->
+					<switch minzoom="12">
 						<switch hikingRoutesOSMC="walkingRoutesOSMC" additional="!node_network" rClass=".route.hiking.routes">
 							<case additional="network=iwn" rClass=".route.hiking.routes.iwn"/>
 							<case additional="network=nwn" rClass=".route.hiking.routes.nwn"/>
