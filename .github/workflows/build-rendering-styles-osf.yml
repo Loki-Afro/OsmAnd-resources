@@ -1,0 +1,30 @@
+name: Build RenderingStyles OSF
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout selected branch
+        uses: actions/checkout@v4
+
+      - name: Install OSF build dependencies
+        run: sudo apt-get update && sudo apt-get install -y jq zip moreutils
+
+      - name: Build RenderingStyles.osf
+        working-directory: rendering_styles
+        run: |
+          chmod +x build_osf.sh
+          ./build_osf.sh
+
+      - name: Upload RenderingStyles.osf
+        uses: actions/upload-artifact@v4
+        with:
+          name: RenderingStyles-${{ github.ref_name }}
+          path: rendering_styles/RenderingStyles.osf
+          retention-days: 90
